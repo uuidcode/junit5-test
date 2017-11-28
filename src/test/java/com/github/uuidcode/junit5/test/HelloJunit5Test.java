@@ -15,19 +15,24 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 @DisplayName("JUnit5를 테스트합니다.")
-public class HelloJunit5 {
+public class HelloJunit5Test {
     @Test
     @DisplayName("안녕하세요.")
     @Tag("slow")
-    @RepeatedTest(10)
     public void hello() {
+        assertThat("Hello").isNotNull();
+        System.out.println(">>> hello");
+    }
+
+    @RepeatedTest(10)
+    public void repeatedTest() {
         assertThat("Hello").isNotNull();
         System.out.println(">>> hello");
     }
 
     @Test
     @DisplayName("1부터 10까지 더하면 55입니다.")
-    @Tag("flow")
+    @Tag("fast")
     public void sum() {
         assertThat(IntStream.rangeClosed(1, 10).sum()).isEqualTo(55);
         System.out.println(">>> sum");
