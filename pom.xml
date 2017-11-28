@@ -48,7 +48,7 @@
                 <version>2.19</version>
                 <configuration>
                     <properties>
-                        <includeTags>slow</includeTags>
+                        <includeTags>ui</includeTags>
                     </properties>
                 </configuration>
                 <dependencies>
