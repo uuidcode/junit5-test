@@ -8,12 +8,18 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("JUnit5를 테스트합니다.")
 public class HelloJunit5 {
     @Test
     @DisplayName("안녕하세요.")
+    @Tag("slow")
+    @RepeatedTest(10)
     public void hello() {
         assertThat("Hello").isNotNull();
         System.out.println(">>> hello");
@@ -21,9 +27,18 @@ public class HelloJunit5 {
 
     @Test
     @DisplayName("1부터 10까지 더하면 55입니다.")
+    @Tag("flow")
     public void sum() {
         assertThat(IntStream.rangeClosed(1, 10).sum()).isEqualTo(55);
         System.out.println(">>> sum");
+    }
+
+    @Test
+    @DisplayName("값이 null이여야 합니다.")
+    @Disabled("고쳐주세요.")
+    public void fixMe() {
+        assertThat("fixMe").isNull();
+        System.out.println(">>> fixme");
     }
 
     @BeforeAll
