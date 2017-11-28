@@ -16,16 +16,16 @@ import org.junit.jupiter.api.Test;
 
 @DisplayName("JUnit5를 테스트합니다.")
 public class HelloJunit5Test {
-    @Test
-    @DisplayName("안녕하세요.")
-    @Tag("slow")
-    public void hello() {
+    @RepeatedTest(10)
+    public void repeatedTest() {
         assertThat("Hello").isNotNull();
         System.out.println(">>> hello");
     }
 
-    @RepeatedTest(10)
-    public void repeatedTest() {
+    @Test
+    @DisplayName("안녕하세요.")
+    @Tag("slow")
+    public void hello() {
         assertThat("Hello").isNotNull();
         System.out.println(">>> hello");
     }
