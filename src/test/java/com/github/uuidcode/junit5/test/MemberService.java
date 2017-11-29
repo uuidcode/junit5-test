@@ -10,4 +10,20 @@ public class MemberService {
         member.setAuthor(author);
         return member;
     }
+
+    public MemberDao getMemberDao() {
+        return memberDao;
+    }
+
+    public void setMemberDao(MemberDao memberDao) {
+        this.memberDao = memberDao;
+    }
+
+    public AuthorDao getAuthorDao() {
+        return authorDao;
+    }
+
+    public void setAuthorDao(AuthorDao authorDao) {
+        this.authorDao = authorDao;
+    }
 }
