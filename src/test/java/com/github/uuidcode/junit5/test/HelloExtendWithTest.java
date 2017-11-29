@@ -18,6 +18,8 @@ public class HelloExtendWithTest {
     public void beforeEach(@Mock AuthorDao authorDao, @Mock MemberDao memberDao) {
         when(authorDao.getAuthorByMemberId(any())).thenReturn(new Author());
         when(memberDao.get(any())).thenReturn(new Member());
+        this.memberService.setAuthorDao(authorDao);
+        this.memberService.setMemberDao(memberDao);
     }
 
     @Test
