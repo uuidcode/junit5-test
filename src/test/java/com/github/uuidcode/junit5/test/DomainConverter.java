@@ -2,7 +2,6 @@ package com.github.uuidcode.junit5.test;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class DomainConverter {

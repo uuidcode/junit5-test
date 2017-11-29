@@ -31,7 +31,7 @@ public class HelloNestedStackTest {
     }
 
     @Nested @DisplayName("스택에 아이템이 한개가 들어가 있을때")
-    class StackHasOneItem {
+    class OneItemStack {
         @BeforeEach
         public void beforeEach() {
             stack.add("Java");

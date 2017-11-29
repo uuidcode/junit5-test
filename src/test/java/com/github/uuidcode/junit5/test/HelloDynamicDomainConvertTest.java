@@ -26,8 +26,12 @@ public class HelloDynamicDomainConvertTest {
 
         return domainMap.entrySet()
             .stream()
-            .map(entry ->
-                dynamicTest(entry.getKey() + "->" + entry.getValue(),
-                    () -> assertEquals(this.domainConverter.httpsDomain(entry.getKey()), entry.getValue())));
+            .map(entry -> {
+                String httpDomain = entry.getKey();
+                String httpsDomain = entry.getValue();
+
+                return dynamicTest(httpDomain + " -> " + httpsDomain,
+                    () -> assertEquals(this.domainConverter.httpsDomain(httpDomain), httpsDomain));
+            });
     }
 }
