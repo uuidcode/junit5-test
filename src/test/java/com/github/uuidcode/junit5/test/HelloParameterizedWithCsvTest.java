@@ -1,6 +1,6 @@
 package com.github.uuidcode.junit5.test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,6 +19,6 @@ public class HelloParameterizedWithCsvTest {
         "191.1.2.3, false"
     })
     public void test(String ip, boolean expected) {
-        assertThat(this.network.isPrivateNetwork(ip)).isEqualTo(expected);
+        assertEquals(expected, this.network.isPrivateNetwork(ip));
     }
 }
