@@ -8,18 +8,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.TestFactory;
 
 public class HelloDynamicDomainConvertTest {
     private DomainConverter domainConverter = new DomainConverter();
-
-    @BeforeEach
-    public void beforeEach() {
-        System.out.println("beforeEach");
-    }
 
     @TestFactory
     @DisplayName("https가 지원되는 도메인으로 변경합니다.")
@@ -37,7 +31,7 @@ public class HelloDynamicDomainConvertTest {
                 String httpsDomain = entry.getValue();
 
                 return dynamicTest(httpDomain + " -> " + httpsDomain,
-                    () -> assertEquals(this.domainConverter.httpsDomain(httpDomain), httpsDomain));
+                    () -> assertEquals(httpsDomain, this.domainConverter.httpsDomain(httpDomain)));
             });
     }
 }

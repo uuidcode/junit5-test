@@ -26,7 +26,7 @@ public class HelloDomainConvertTest {
             .forEach(entry -> {
                 String httpDomain = entry.getKey();
                 String httpsDomain = entry.getValue();
-                assertEquals(this.domainConverter.httpsDomain(httpDomain), httpsDomain);
+                assertEquals(httpsDomain, this.domainConverter.httpsDomain(httpDomain));
             });
     }
 }
