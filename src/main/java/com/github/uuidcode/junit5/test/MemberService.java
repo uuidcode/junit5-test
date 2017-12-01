@@ -1,7 +1,12 @@
 package com.github.uuidcode.junit5.test;
 
+import javax.annotation.Resource;
+
 public class MemberService {
+    @Resource
     private MemberDao memberDao;
+
+    @Resource
     private AuthorDao authorDao;
 
     public Member getMember(Long memberId) {

@@ -1,33 +1,30 @@
-package com.github.uuidcode.junit5;
+package com.github.uuidcode.junit5.test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 
-import com.github.uuidcode.junit5.test.AuthorDao;
-import com.github.uuidcode.junit5.test.MemberDao;
-import com.github.uuidcode.junit5.test.MemberService;
-
-@RunWith(MockitoJUnitRunner.class)
 public class HelloMockitoTest {
     @InjectMocks
-    private MemberService memberService = new MemberService();
+    MemberService memberService = new MemberService();
 
     @Mock
-    private MemberDao memberDao;
+    MemberDao memberDao;
 
     @Mock
-    private AuthorDao authorDao;
+    AuthorDao authorDao;
 
     @BeforeEach
     public void beforeEach() {
         MockitoAnnotations.initMocks(this);
+        when(authorDao.getAuthorByMemberId(any())).thenReturn(new Author());
+        when(memberDao.get(any())).thenReturn(new Member());
     }
 
     @Test

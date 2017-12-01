@@ -12,7 +12,8 @@ import org.mockito.Mock;
 
 @ExtendWith(MockitoExtension.class)
 public class HelloExtendWithTest {
-    private @InjectMocks MemberService memberService = new MemberService();
+    @InjectMocks
+    MemberService memberService = new MemberService();
 
     @BeforeEach
     public void beforeEach(@Mock AuthorDao authorDao, @Mock MemberDao memberDao) {
