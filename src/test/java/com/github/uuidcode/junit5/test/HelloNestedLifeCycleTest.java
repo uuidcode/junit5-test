@@ -34,6 +34,9 @@ public class HelloNestedLifeCycleTest {
         expectedList.add("Nested1 beforeAll");
         expectedList.add("beforeEach");
         expectedList.add("Nested1 beforeEach");
+        expectedList.add("Nested1 abc");
+        expectedList.add("beforeEach");
+        expectedList.add("Nested1 beforeEach");
         expectedList.add("Nested1 test1");
         expectedList.add("beforeEach");
         expectedList.add("Nested1 beforeEach");
@@ -72,6 +75,11 @@ public class HelloNestedLifeCycleTest {
         @Test
         public void test2() {
             list.add("Nested1 test2");
+        }
+
+        @Test
+        public void abc() {
+            list.add("Nested1 abc");
         }
     }
 }
