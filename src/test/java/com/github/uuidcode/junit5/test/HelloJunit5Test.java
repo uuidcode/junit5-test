@@ -26,23 +26,5 @@ public class HelloJunit5Test {
     @Tag("fast")
     public void sum() {
         assertEquals(55, IntStream.rangeClosed(1, 10).sum());
-        System.out.println(">>> sum");
-    }
-
-    @RepeatedTest(10)
-    @DisplayName("반복테스트")
-    @Disabled("고쳐주세요.")
-    public void repeatedTest() {
-        assertNotNull("Hello");
-    }
-
-    @Test
-    @DisplayName("에러처리")
-    public void exceptionTest() {
-        Exception exception = assertThrows(NumberFormatException.class, () -> {
-            Integer.parseInt("가");
-        });
-
-        assertEquals("For input string: \"가\"", exception.getMessage());
     }
 }
