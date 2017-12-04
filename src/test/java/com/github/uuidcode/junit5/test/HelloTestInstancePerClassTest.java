@@ -8,7 +8,7 @@ import org.junit.jupiter.api.TestInstance;
 public class HelloTestInstancePerClassTest {
     @BeforeAll
     public void beforeAll() {
-        System.out.println(this);
+        System.out.println("beforeAll");
     }
 
     @Test
