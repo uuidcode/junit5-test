@@ -16,7 +16,6 @@ public class HelloInjectMocksTest {
     @Mock
     private MemberDao memberDaoMock;
 
-
     @Test
     public void test() {
         assertNotNull(this.memberDao.getLast());
