@@ -17,14 +17,39 @@ import com.google.gson.GsonBuilder;
 public class HelloNestedLifeCycleTest {
     private static List<String> list = new ArrayList<>();
 
-    @BeforeAll
-    public static void beforeAll() {
+    @BeforeAll public static void beforeAll() {
         list.add("beforeAll");
     }
 
-    @BeforeEach
-    public void beforeEach() {
+    @BeforeEach public void beforeEach() {
         list.add("beforeEach");
+    }
+
+    @Nested @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    class Nested1 {
+        @BeforeAll public void beforeAll() {
+            list.add("Nested1 beforeAll");
+        }
+
+        @BeforeEach public void beforeEach() {
+            list.add("Nested1 beforeEach");
+        }
+
+        @AfterAll public void afterAll() {
+            list.add("Nested1 afterAll");
+        }
+
+        @Test public void test1() {
+            list.add("Nested1 test1");
+        }
+
+        @Test public void test2() {
+            list.add("Nested1 test2");
+        }
+
+         @Test public void abc() {
+            list.add("Nested1 abc");
+        }
     }
 
     @AfterAll
@@ -47,39 +72,5 @@ public class HelloNestedLifeCycleTest {
 
     public static String toJson(Object object) {
         return new GsonBuilder().setPrettyPrinting().create().toJson(object);
-    }
-
-    @Nested
-    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    class Nested1 {
-        @BeforeAll
-        public void beforeAll() {
-            list.add("Nested1 beforeAll");
-        }
-
-        @BeforeEach
-        public void beforeEach() {
-            list.add("Nested1 beforeEach");
-        }
-
-        @AfterAll
-        public void afterAll() {
-            list.add("Nested1 afterAll");
-        }
-
-        @Test
-        public void test1() {
-            list.add("Nested1 test1");
-        }
-
-        @Test
-        public void test2() {
-            list.add("Nested1 test2");
-        }
-
-        @Test
-        public void abc() {
-            list.add("Nested1 abc");
-        }
     }
 }
