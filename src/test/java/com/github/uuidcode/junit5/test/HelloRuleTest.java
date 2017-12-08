@@ -1,5 +1,7 @@
 package com.github.uuidcode.junit5.test;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Rule;
@@ -15,25 +17,24 @@ public class HelloRuleTest {
     public ExpectedException expectedExceptionRule = ExpectedException.none();
 
     @Test
-    public void success() throws Exception {
-        Thread.sleep(100);
-    }
-
-    @Test
-    public void fail() throws Exception {
+    public void timeoutFail() throws Exception {
         Thread.sleep(1001);
     }
 
     @Test
-    public void throwsNullPointerException() {
-        expectedExceptionRule.expect(NullPointerException.class);
-        throw new NullPointerException();
+    public void tryAndCatch() {
+        try {
+            Integer.parseInt("가");
+        } catch (Throwable t) {
+            assertEquals(t.getClass(), NumberFormatException.class);
+            assertEquals(t.getMessage(), "For input string: \"가\"");
+        }
     }
 
     @Test
-    public void throwsNullPointerExceptionWithMessage() {
-        expectedExceptionRule.expect(NullPointerException.class);
-        expectedExceptionRule.expectMessage("What happened?");
-        throw new NullPointerException("What happened?");
+    public void withExpectedExceptionRule() {
+        expectedExceptionRule.expect(NumberFormatException.class);
+        expectedExceptionRule.expectMessage("For input string: \"가\"");
+        Integer.parseInt("가");
     }
 }
