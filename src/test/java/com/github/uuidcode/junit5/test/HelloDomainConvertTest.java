@@ -1,6 +1,5 @@
 package com.github.uuidcode.junit5.test;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.HashMap;
@@ -22,7 +21,6 @@ public class HelloDomainConvertTest {
         }};
 
         domainMap.entrySet()
-            .stream()
             .forEach(entry -> {
                 String httpDomain = entry.getKey();
                 String httpsDomain = entry.getValue();

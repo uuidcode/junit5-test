@@ -16,10 +16,4 @@ public class HelloTestInfoTest {
         System.out.println("getTestClass(): " + testInfo.getTestClass());
         System.out.println("getTestMethod(): " + testInfo.getTestMethod());
     }
-
-    @Test
-    public void testReporter(TestReporter testReporter) {
-        testReporter.publishEntry("a", "b");
-        testReporter.publishEntry("1", "2");
-    }
 }
