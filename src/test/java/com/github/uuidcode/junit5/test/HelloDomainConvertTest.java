@@ -6,14 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class HelloDomainConvertTest {
     private DomainConverter domainConverter = new DomainConverter();
 
     @Test
-    @DisplayName("https가 지원되는 도메인으로 변경합니다.")
     public void test() {
         Map<String, String> domainMap = new HashMap<String, String>() {{
             this.put("storyfunding.devel.kakao.com", "storyfunding.devel.kakao.com");
@@ -26,7 +24,7 @@ public class HelloDomainConvertTest {
             .forEach(entry -> {
                 String httpDomain = entry.getKey();
                 String httpsDomain = entry.getValue();
-                assertEquals(httpsDomain, this.domainConverter.httpsDomain(httpDomain));
+                assertEquals(httpsDomain, this.domainConverter.toHttpsDomain(httpDomain));
             });
     }
 }

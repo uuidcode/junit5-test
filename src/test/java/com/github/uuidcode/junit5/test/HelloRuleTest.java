@@ -26,9 +26,14 @@ public class HelloRuleTest {
         try {
             Integer.parseInt("가");
         } catch (Throwable t) {
-            assertEquals(t.getClass(), NumberFormatException.class);
-            assertEquals(t.getMessage(), "For input string: \"가\"");
+            assertEquals(NumberFormatException.class, t.getClass());
+            assertEquals("For input string: \"가\"", t.getMessage());
         }
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void expected() {
+        Integer.parseInt("가");
     }
 
     @Test

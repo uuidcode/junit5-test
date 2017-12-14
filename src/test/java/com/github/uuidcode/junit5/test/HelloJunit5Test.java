@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 @DisplayName("JUnit5를 테스트합니다.")
 public class HelloJunit5Test {
     @Test
-    @DisplayName("안녕하세요.")
     @Tag("slow")
     public void hello() {
         assertNotNull("Hello");

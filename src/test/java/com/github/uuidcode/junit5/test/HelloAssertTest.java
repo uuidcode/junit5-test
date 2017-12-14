@@ -18,6 +18,7 @@ import org.junit.jupiter.api.Test;
 @DisplayName("assert를 테스트합니다.")
 public class HelloAssertTest {
     @Test
+    @DisplayName("다양한 assertions")
     public void test() {
         assertEquals(2, 1 + 1);
         assertEquals(new Author(), new Author());

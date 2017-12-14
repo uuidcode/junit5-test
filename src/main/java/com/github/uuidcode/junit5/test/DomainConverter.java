@@ -9,7 +9,7 @@ public class DomainConverter {
      *  local.studio.storyfunding.devel.kakao.com
      *  -> local-studio-storyfunding.devel.kakao.com
      */
-    public String httpsDomain(String domain) {
+    public String toHttpsDomain(String domain) {
         List<String> list = Arrays.asList(domain.split("\\."));
 
         int size = 4;

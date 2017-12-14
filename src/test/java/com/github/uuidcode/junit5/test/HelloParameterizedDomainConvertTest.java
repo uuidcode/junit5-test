@@ -23,6 +23,6 @@ public class HelloParameterizedDomainConvertTest {
         "local.studio.storyfunding.devel.kakao.com, local-studio-storyfunding.devel.kakao.com"
     })
     public void test(String httpDomain, String httpsDomain) {
-        assertEquals(httpsDomain, this.domainConverter.httpsDomain(httpDomain));
+        assertEquals(httpsDomain, this.domainConverter.toHttpsDomain(httpDomain));
     }
 }

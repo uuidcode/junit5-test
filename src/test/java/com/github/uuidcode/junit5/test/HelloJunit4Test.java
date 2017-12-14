@@ -9,6 +9,6 @@ import org.junit.Test;
 public class HelloJunit4Test {
     @Test
     public void 테스트_1에서_10까지_더하면_55입니다() {
-        assertEquals(IntStream.rangeClosed(1, 10).sum(), 55);
+        assertEquals(55, IntStream.rangeClosed(1, 10).sum());
     }
 }

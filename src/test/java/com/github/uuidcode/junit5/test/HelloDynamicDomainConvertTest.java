@@ -31,7 +31,7 @@ public class HelloDynamicDomainConvertTest {
                 String httpsDomain = entry.getValue();
 
                 return dynamicTest(httpDomain + " -> " + httpsDomain,
-                    () -> assertEquals(httpsDomain, this.domainConverter.httpsDomain(httpDomain)));
+                    () -> assertEquals(httpsDomain, this.domainConverter.toHttpsDomain(httpDomain)));
             });
     }
 }
